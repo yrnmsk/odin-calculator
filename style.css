@@ -1,3 +1,12 @@
+/* ! DEBUG */
+body *,
+body *::before,
+body *::after {
+  border: .5px solid hsl(0, 50%, 33%);
+  padding: 1%;
+}
+/* ! DEBUG */
+
 body, * {
   margin: 0;
   padding: 0;
@@ -24,7 +33,7 @@ body {
   /* flex: 1; */
 }
 
-#numbers {
+#buttons {
   display: flex;
   flex-direction: column;
   /* flex: 5; */
@@ -36,7 +45,13 @@ body {
   /* flex: 1; */
 }
 
-.number {
+.button {
   display: flex;
+  flex: 1;
+}
+
+#numbers {
+  display: flex;
+  flex-direction: column;
   flex: 1;
 }
