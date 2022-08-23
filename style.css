@@ -17,7 +17,7 @@ body {
   user-select: none;
 }
 
-#clear-btns {
+section#clear-btns {
   display: flex;
   flex-direction: row;
   flex: 1;
@@ -26,11 +26,31 @@ body {
   gap: 1%;
 }
 
-.button {
+div.button {
   cursor: pointer;
   display: flex;
   flex-direction: row;
   flex: 1;
   justify-content: center;
+  gap: 1%;
+}
+
+section#gen-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1%;
+}
+
+section#number-btns {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+section#gen-btns div.row {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
   gap: 1%;
 }
