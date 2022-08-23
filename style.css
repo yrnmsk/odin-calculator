@@ -42,7 +42,8 @@ section#gen-btns {
   gap: 1%;
 }
 
-section#number-btns {
+section#number-btns,
+section#operator-btns {
   display: flex;
   flex-direction: column;
   flex: 1;
