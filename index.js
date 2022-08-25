@@ -21,3 +21,17 @@ Array
         break;
     }
   }));
+
+const [ numberRows, operatorRows ] = [ ...Array.from(genBtns.children).slice() ];
+
+Array
+  .from(numberRows.children)
+  .forEach(row => Array
+    .from(row.children)
+    .forEach(button => button.addEventListener('click', () => {
+      if (Display.textContent.length == 1 &&
+        Display.textContent == 0 &&
+        button.textContent != '.') Display.textContent = button.textContent;
+      else Display.textContent += button.textContent;
+    }))
+  );

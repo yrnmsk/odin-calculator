@@ -3,7 +3,7 @@ body *,
 body *::before,
 body *::after {
   border: .5px solid hsl(0, 50%, 33%);
-  padding: 1%;
+  padding: 1.5%;
 }
 /* ! DEBUG */
 
