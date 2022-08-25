@@ -17,6 +17,18 @@ body {
   user-select: none;
 }
 
+section#screen {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+section#screen > section {
+  display: flex;
+  flex: 1;
+  justify-content: right;
+}
+
 section#clear-btns {
   display: flex;
   flex-direction: row;

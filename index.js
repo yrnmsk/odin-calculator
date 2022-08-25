@@ -1,10 +1,23 @@
-const Screen = document.querySelector('#screen');
-// const Buttons = document.querySelector('#buttons');
-// const clearBtns = Buttons.querySelector('#clear-btns');
-// const genBtns = Buttons.querySelector('#gen-btns');
+const Display = document.querySelector('#display');
+const Result = document.querySelector('#result');
 
-const buttons = document.querySelectorAll('div.button');
+const clearBtns = document.querySelector('#clear-btns');
+const genBtns = document.querySelector('#gen-btns');
 
-buttons.forEach(button => button.addEventListener('click', event => {
-  Screen.textContent += event.target.textContent;
-}));
+Array
+  .from(clearBtns.children)
+  .forEach(button => button.addEventListener('click', () => {
+    switch (button.id) {
+      case 'clearAll-btn':
+        // Display.textContent = '0';
+        // Result.textContent = '= 0.00000';
+        console.log('clear all');
+        break;
+      case 'clear-btn':
+        console.log('clear');
+        break;
+      case 'erase-btn':
+        console.log('erase');
+        break;
+    }
+  }));
