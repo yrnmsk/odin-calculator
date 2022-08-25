@@ -1,37 +1,56 @@
-const Display = document.querySelector('#display');
-const Result = document.querySelector('#result');
+const Buttons = document.getElementById('buttons');
 
-const clearBtns = document.querySelector('#clear-btns');
-const genBtns = document.querySelector('#gen-btns');
+const [ clearBtns, genBtns ] = [ Buttons.querySelector('#clear-btns'), Buttons.querySelector('#gen-btns') ];
 
-Array
-  .from(clearBtns.children)
-  .forEach(button => button.addEventListener('click', () => {
-    switch (button.id) {
-      case 'clearAll-btn':
-        // Display.textContent = '0';
-        // Result.textContent = '= 0.00000';
-        console.log('clear all');
-        break;
-      case 'clear-btn':
-        console.log('clear');
-        break;
-      case 'erase-btn':
-        console.log('erase');
-        break;
-    }
-  }));
+const clearBtnsData = [
+  { 'id': 'clearAll-btn', 'icon': 'X', 'text': 'Clear All' },
+  { 'id': 'clear-btn', 'icon': 'X', 'text': 'Clear' },
+  { 'id': 'erase-btn', 'icon': '⬅', 'text': 'Erase' }
+];
+const generateClearBtns = (id, icon, text) => {
+  const btn = document.createElement('div', );
+  btn.id = id;
+  btn.className = 'button';
 
-const [ numberRows, operatorRows ] = [ ...Array.from(genBtns.children).slice() ];
+  const ico = document.createElement('div');
+  ico.className = 'btn-icon';
+  ico.textContent = icon;
 
-Array
-  .from(numberRows.children)
-  .forEach(row => Array
-    .from(row.children)
-    .forEach(button => button.addEventListener('click', () => {
-      if (Display.textContent.length == 1 &&
-        Display.textContent == 0 &&
-        button.textContent != '.') Display.textContent = button.textContent;
-      else Display.textContent += button.textContent;
-    }))
-  );
+  const txt = document.createElement('div');
+  txt.className = 'btn-text';
+  txt.textContent = text;
+
+  btn.append(ico, txt);
+  return btn;
+}
+clearBtnsData.forEach(data => clearBtns.appendChild(generateClearBtns(data.id, data.icon, data.text)));
+
+const [ NumberBtns, OperatorBtns ] = [ genBtns.querySelector('#number-btns'), genBtns.querySelector('#operator-btns') ];
+
+const generateGenBtns = array => {
+  const row = document.createElement('div');
+  row.className = 'row';
+  array.forEach(value => {
+    const btn = document.createElement('div');
+    btn.classList.add('button', 'icon');
+    btn.textContent = value;
+    row.appendChild(btn);
+  });
+  return row;
+};
+
+const numberBtnsData = [
+  [ 7, 8, 9 ],
+  [ 4, 5, 6 ],
+  [ 1, 2, 3 ],
+  [ '.', 0, '00' ]
+];
+numberBtnsData.forEach(data => NumberBtns.appendChild(generateGenBtns(data)));
+
+const operatorBtnsData = [
+  [ '(', ')' ],
+  [ '×', '÷' ],
+  [ '+', '-' ],
+  [ 'Ans', '=' ]
+];
+operatorBtnsData.forEach(data => OperatorBtns.appendChild(generateGenBtns(data)));
