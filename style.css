@@ -34,7 +34,7 @@ section#clear-btns {
   flex-direction: row;
   flex: 1;
   justify-content: space-around;
-  align-items: center;
+  /* align-items: center; */
   gap: 1%;
 }
 
