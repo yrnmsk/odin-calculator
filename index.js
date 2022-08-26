@@ -59,9 +59,20 @@ const Screen = document.getElementById('screen');
 const [ Display, Result ] = [ Screen.querySelector('#display'), Screen.querySelector('#result') ];
 
 const allNumberBtns = Array.from(NumberBtns.querySelectorAll('.button'));
-allNumberBtns
-  .forEach(button => button.addEventListener('click', event => {
-    // switch something shtfck for input limits
-    // for now, replace textContent of Display
-    Display.textContent = event.target.textContent;
-  }));
+const limitNumberBtns = event => {
+  switch (event.target.textContent) {
+    case '00' || '0':
+      if (Display.textContent.length != 1 || Display.textContent != 0) Display.textContent += event.target.textContent;
+      break;
+    case '.':
+      if (!Display.textContent.includes('.')) Display.textContent += event.target.textContent;
+      break;
+    default:
+      if (Display.textContent.length == 1) {
+        if (Display.textContent == 0) Display.textContent = event.target.textContent;
+        else Display.textContent += event.target.textContent;
+      } else Display.textContent += event.target.textContent;
+      break;
+  }
+};
+allNumberBtns.forEach(button => button.addEventListener('click', limitNumberBtns));
