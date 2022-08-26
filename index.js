@@ -54,3 +54,14 @@ const operatorBtnsData = [
   [ 'Ans', '=' ]
 ];
 operatorBtnsData.forEach(data => OperatorBtns.appendChild(generateGenBtns(data)));
+
+const Screen = document.getElementById('screen');
+const [ Display, Result ] = [ Screen.querySelector('#display'), Screen.querySelector('#result') ];
+
+const allNumberBtns = Array.from(NumberBtns.querySelectorAll('.button'));
+allNumberBtns
+  .forEach(button => button.addEventListener('click', event => {
+    // switch something shtfck for input limits
+    // for now, replace textContent of Display
+    Display.textContent = event.target.textContent;
+  }));
