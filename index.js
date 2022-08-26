@@ -1,3 +1,5 @@
+// ! --- Begin Section: Dynamic Render ---
+
 const Buttons = document.getElementById('buttons');
 
 const [ clearBtns, genBtns ] = [ Buttons.querySelector('#clear-btns'), Buttons.querySelector('#gen-btns') ];
@@ -55,6 +57,10 @@ const operatorBtnsData = [
 ];
 operatorBtnsData.forEach(data => OperatorBtns.appendChild(generateGenBtns(data)));
 
+// ! --- End Section: Dynamic Render ---
+
+// ! --- Begin Section: Change Display upon Click Events ---
+
 const Screen = document.getElementById('screen');
 const [ Display, Result ] = [ Screen.querySelector('#display'), Screen.querySelector('#result') ];
 
@@ -76,3 +82,5 @@ const limitNumberBtns = event => {
   }
 };
 allNumberBtns.forEach(button => button.addEventListener('click', limitNumberBtns));
+
+// ! --- End Section: Change Display upon Click Events ---
