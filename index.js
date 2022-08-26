@@ -64,6 +64,23 @@ operatorBtnsData.forEach(data => OperatorBtns.appendChild(generateGenBtns(data))
 const Screen = document.getElementById('screen');
 const [ Display, Result ] = [ Screen.querySelector('#display'), Screen.querySelector('#result') ];
 
+const allClearBtns = Array.from(clearBtns.querySelectorAll('.button'));
+allClearBtns.forEach(button => button.addEventListener('click', event => {
+  switch (event.target.id) {
+    case 'clearAll-btn':
+      // console.log('clear all');
+      // Result.textContent = '0.00000';
+      // break;
+    case 'clear-btn':
+      // console.log('clear');
+      Display.textContent = 0;
+      break;
+    case 'erase-btn':
+      // console.log('erase');
+      break;
+  }
+}));
+
 const allNumberBtns = Array.from(NumberBtns.querySelectorAll('.button'));
 const limitNumberBtns = event => {
   switch (event.target.textContent) {
