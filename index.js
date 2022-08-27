@@ -50,9 +50,8 @@ const numberBtnsData = [
 numberBtnsData.forEach(data => NumberBtns.appendChild(generateGenBtns(data)));
 
 const operatorBtnsData = [
-  [ '(', ')' ],
-  [ '×', '÷' ],
   [ '+', '-' ],
+  [ '×', '÷' ],
   [ 'Ans', '=' ]
 ];
 operatorBtnsData.forEach(data => OperatorBtns.appendChild(generateGenBtns(data)));

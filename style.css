@@ -44,6 +44,7 @@ div.button {
   flex-direction: row;
   flex: 1;
   justify-content: center;
+  align-items: center;
   gap: 1%;
 }
 
