@@ -99,4 +99,25 @@ const limitNumberBtns = event => {
 };
 allNumberBtns.forEach(button => button.addEventListener('click', limitNumberBtns));
 
+const allOperatorBtns = Array.from(OperatorBtns.querySelectorAll('.button'));
+const limitOperatorBtns = event => {
+  switch (event.target.textContent) {
+    case '=':
+      // operate()
+      break;
+    case 'Ans':
+      // limit special cases for 'Ans'
+      // simiarly treated like number buttons
+      // break;
+    default:
+      // limit operators
+      // a bit similar to decimal point:
+      // if last character is an operator, ignore or replace
+      // else display
+      Display.textContent += event.target.textContent;
+      break;
+  }
+};
+allOperatorBtns.forEach(button => button.addEventListener('click', limitOperatorBtns));
+
 // ! --- End Section: Change Display upon Click Events ---
