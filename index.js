@@ -75,7 +75,8 @@ allClearBtns.forEach(button => button.addEventListener('click', event => {
       Display.textContent = 0;
       break;
     case 'erase-btn':
-      // console.log('erase');
+      if (Display.textContent.length == 1) Display.textContent = 0;
+      else Display.textContent = Display.textContent.slice(0, Display.textContent.length - 1);
       break;
   }
 }));
