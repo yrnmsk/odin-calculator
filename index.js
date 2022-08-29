@@ -10,7 +10,7 @@ const clearBtnsData = [
   { 'id': 'erase-btn', 'icon': '⬅', 'text': 'Erase' }
 ];
 const generateClearBtns = (id, icon, text) => {
-  const btn = document.createElement('div', );
+  const btn = document.createElement('div');
   btn.id = id;
   btn.className = 'button';
 
