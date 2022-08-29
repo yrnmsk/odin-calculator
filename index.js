@@ -64,7 +64,7 @@ const Screen = document.getElementById('screen');
 const [ Display, Result ] = [ Screen.querySelector('#display'), Screen.querySelector('#result') ];
 
 const allClearBtns = Array.from(clearBtns.querySelectorAll('.button'));
-allClearBtns.forEach(button => button.addEventListener('click', event => {
+const limitClearButtons = event => {
   switch (event.target.id) {
     case 'clearAll-btn':
       // console.log('clear all');
@@ -79,7 +79,8 @@ allClearBtns.forEach(button => button.addEventListener('click', event => {
       else Display.textContent = Display.textContent.slice(0, Display.textContent.length - 1);
       break;
   }
-}));
+};
+allClearBtns.forEach(button => button.addEventListener('click', limitClearButtons));
 
 const allNumberBtns = Array.from(NumberBtns.querySelectorAll('.button'));
 const limitNumberBtns = event => {
