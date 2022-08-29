@@ -110,13 +110,17 @@ const limitOperatorBtns = event => {
     case 'Ans':
       // limit special cases for 'Ans'
       // simiarly treated like number buttons
-      // break;
+      const length = Display.textContent.length - 1;
+      if (Display.textContent == '0') Display.textContent = 'Ans';
+      if (Display.textContent[length] !== ' ') break;
+      break;
     default:
       // limit operators
       // a bit similar to decimal point:
       // if last character is an operator, ignore or replace
       // else display
-      Display.textContent += event.target.textContent;
+      if (Display.textContent[Display.textContent.length - 1] == ' ') break;
+      Display.textContent += ` ${event.target.textContent} `;
       break;
   }
 };
