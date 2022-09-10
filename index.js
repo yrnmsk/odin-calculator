@@ -75,8 +75,10 @@ const limitClearButtons = event => {
       Display.textContent = 0;
       break;
     case 'erase-btn':
-      if (Display.textContent.length == 1) Display.textContent = 0;
-      else Display.textContent = Display.textContent.slice(0, Display.textContent.length - 1);
+      if (Display.textContent.endsWith('Ans ')) Display.textContent = Display.textContent.replace(/([\s]?Ans\s)$/, '');
+      if (Display.textContent.length <= 1) Display.textContent = 0;
+      else if (Display.textContent.endsWith(' ')) Display.textContent = Display.textContent.replace(/(\s(.)\s)$/, '');
+      else Display.textContent = Display.textContent.replace(/.$/, '');
       break;
   }
 };
@@ -108,19 +110,14 @@ const limitOperatorBtns = event => {
       // operate()
       break;
     case 'Ans':
-      // limit special cases for 'Ans'
-      // simiarly treated like number buttons
-      const length = Display.textContent.length - 1;
-      if (Display.textContent == '0') Display.textContent = 'Ans';
-      if (Display.textContent[length] !== ' ') break;
+      if (Display.textContent.endsWith('Ans ')) break;
+      if (Display.textContent == '0') Display.textContent = 'Ans ';
+      else if (Display.textContent.endsWith(' ')) Display.textContent += 'Ans ';
       break;
     default:
-      // limit operators
-      // a bit similar to decimal point:
-      // if last character is an operator, ignore or replace
-      // else display
-      if (Display.textContent[Display.textContent.length - 1] == ' ') break;
-      Display.textContent += ` ${event.target.textContent} `;
+      if (Display.textContent.endsWith('Ans ')) Display.textContent += `${event.target.textContent} `;
+      else if (Display.textContent.endsWith(' ')) Display.textContent = Display.textContent.replace(/\s[\W\S\D]\s$/, ` ${event.target.textContent} `);
+      else Display.textContent += ` ${event.target.textContent} `;
       break;
   }
 };
